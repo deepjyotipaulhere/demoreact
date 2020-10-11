@@ -30,7 +30,7 @@ class Index extends React.Component {
             <a>About Us</a>
           </Link>
           <form>
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" onClick={e=>this.setState({username:e.target.value})} />
+            <TextField id="outlined-basic" label="Outlined" variant="outlined" onKeyDown={e=>this.setState({username:e})}  />
             <Button variant="contained" color="primary" onClick={(e) => {
               e.preventDefault();
               axios.post("http://localhost:5000/register", {
@@ -42,6 +42,9 @@ class Index extends React.Component {
             }}>
               Primary
             </Button>
+            {
+              JSON.stringify(this.state.username)
+            }
           </form>
         </Menu>
       </div>
